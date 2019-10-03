@@ -2,7 +2,7 @@
 
 (define scribblings '(("scribblings/manual.scrbl" (multi-page))))
 
-(define deps '("https://github.com/thoughtstem/survival.git"
+(define deps '("https://github.com/thoughtstem/TS-GE-Languages.git?path=survival"  
                "https://github.com/thoughtstem/colors-as-strings.git"
                "https://github.com/thoughtstem/ts-icons.git"
                "https://github.com/thoughtstem/animal-assets.git"
