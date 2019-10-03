@@ -1,3 +1,3 @@
-clicker-farm-collect
+clicker-cartoon-collect
 ====================
 README text here.
