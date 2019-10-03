@@ -1,7 +1,7 @@
 #lang info
 (define deps '("base" 
-               "survival"
-               "healer-lib"
+               "https://github.com/thoughtstem/survival.git"  
+               "https://github.com/thoughtstem/TS-K2-Languages.git?path=healer-lib"  
                ))
 (define build-deps '("scribble-lib" "racket-doc" "rackunit-lib"))
 (define pkg-desc "Description Here")
