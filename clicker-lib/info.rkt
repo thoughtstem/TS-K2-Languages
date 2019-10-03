@@ -7,6 +7,7 @@
     "game-engine-demos-common"
     "ratchet"
     "colors-as-strings"
+    "ts-icons"
     "clicker-assets"
     "animal-assets"))
 

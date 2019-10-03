@@ -5,7 +5,7 @@
   (rename-out [play play-icon]))
 
 (require 
-  (only-in common-icons play)
+  (only-in ts-icons play)
   (only-in colors-as-strings
            red
            green

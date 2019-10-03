@@ -1,7 +1,7 @@
 #lang racket 
 
 (provide (all-from-out "./assets.rkt")
-         (all-from-out common-icons)
+         (all-from-out ts-icons)
          ;(all-from-out clicker-assets)
          (all-from-out animal-assets)
          (all-from-out colors-as-strings)
@@ -12,7 +12,7 @@
          (all-from-out "./clicker-lang.rkt"))
 
 (require "./assets.rkt"
-         common-icons
+         ts-icons
          ;clicker-assets ;we only need the renamed sprites for clicker, not the images that have conflicting ids
          animal-assets
          (only-in colors-as-strings

@@ -4,7 +4,7 @@
 
 (define deps '("survival"
                "colors-as-strings"
-               "common-icons"
+               "ts-icons"
                "ratchet"
                "english"))
 

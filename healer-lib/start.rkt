@@ -12,7 +12,7 @@
          (for-syntax racket)
          (prefix-in a: animal-assets)
          syntax/parse/define
-         (only-in common-icons question-mark))
+         (only-in ts-icons question-mark))
 
 (define-syntax (listify stx)
   (syntax-parse stx
