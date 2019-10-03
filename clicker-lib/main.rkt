@@ -4,7 +4,7 @@
          (all-from-out common-icons)
          ;(all-from-out clicker-assets)
          (all-from-out animal-assets)
-         (all-from-out color-strings)
+         (all-from-out colors-as-strings)
          bg->play-icon
          rand
          (all-from-out game-engine)
@@ -15,7 +15,7 @@
          common-icons
          ;clicker-assets ;we only need the renamed sprites for clicker, not the images that have conflicting ids
          animal-assets
-         (only-in color-strings
+         (only-in colors-as-strings
            red
            green
            blue

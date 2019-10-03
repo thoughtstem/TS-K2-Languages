@@ -1,12 +1,12 @@
 #lang racket
 
 (provide 
-  (all-from-out color-strings)
+  (all-from-out colors-as-strings)
   (rename-out [play play-icon]))
 
 (require 
   (only-in common-icons play)
-  (only-in color-strings
+  (only-in colors-as-strings
            red
            green
            blue

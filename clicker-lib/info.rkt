@@ -6,6 +6,7 @@
   '("game-engine"
     "game-engine-demos-common"
     "ratchet"
+    "colors-as-strings"
     "clicker-assets"
     "animal-assets"))
 
