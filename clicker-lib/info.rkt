@@ -6,6 +6,7 @@
   '("game-engine"
     "game-engine-demos-common"
     "ratchet"
+    "adventure"
     "https://github.com/thoughtstem/colors-as-strings.git"
     "https://github.com/thoughtstem/ts-icons.git"
     "https://github.com/thoughtstem/clicker-assets.git"
