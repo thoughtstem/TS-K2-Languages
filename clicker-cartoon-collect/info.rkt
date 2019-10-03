@@ -1,7 +1,7 @@
 #lang info
 (define collection "clicker-cartoon-collect")
 (define deps '("base" 
-               "cartoon-assets" 
+               "https://github.com/thoughtstem/cartoon-assets.git"
                "clicker-lib"
                "adventure"))
 (define build-deps '("scribble-lib" "racket-doc" "rackunit-lib"))

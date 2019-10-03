@@ -8,6 +8,6 @@
     "ratchet"
     "https://github.com/thoughtstem/colors-as-strings.git"
     "https://github.com/thoughtstem/ts-icons.git"
-    "clicker-assets"
-    "animal-assets"))
+    "https://github.com/thoughtstem/clicker-assets.git"
+    "https://github.com/thoughtstem/animal-assets.git"))
 
