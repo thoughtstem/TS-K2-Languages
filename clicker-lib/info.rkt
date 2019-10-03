@@ -6,7 +6,7 @@
   '("game-engine"
     "game-engine-demos-common"
     "ratchet"
-    "https://github.com/thoughtstem/color-as-strings.git"
+    "https://github.com/thoughtstem/colors-as-strings.git"
     "https://github.com/thoughtstem/ts-icons.git"
     "clicker-assets"
     "animal-assets"))
