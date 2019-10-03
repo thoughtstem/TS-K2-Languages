@@ -6,8 +6,8 @@
   '("game-engine"
     "game-engine-demos-common"
     "ratchet"
-    "colors-as-strings"
-    "ts-icons"
+    "https://github.com/thoughtstem/color-as-strings.git"
+    "https://github.com/thoughtstem/ts-icons.git"
     "clicker-assets"
     "animal-assets"))
 
