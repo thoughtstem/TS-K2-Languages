@@ -1,5 +1,6 @@
 #lang scribble/manual
-@require[@for-label[color-strings]
+@require[@for-label[healer-lib]
+         @for-label[colors-as-strings]
         scribble/extract]
 
 @title{healer-lib}
@@ -9,7 +10,7 @@
 
 A library for making Ratchet-based healing games.
 
-Reprovides common colors from @racket[color-strings] package -- @racket[red], @racket[green], @racket[blue], @racket[yellow], @racket[orange], and @racket[purple].
+Reprovides common colors from @racket[colors-as-strings] package -- @racket[red], @racket[green], @racket[blue], @racket[yellow], @racket[orange], and @racket[purple].
 
 Also reprovides @racket[play-icon] from @racket[common-icons].
 

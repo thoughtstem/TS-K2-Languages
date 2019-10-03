@@ -1,5 +1,5 @@
 #lang scribble/manual
-@require[@for-label[color-strings]
+@require[@for-label[clicker-lib]
         scribble/extract]
 
 @title{clicker-lib}
