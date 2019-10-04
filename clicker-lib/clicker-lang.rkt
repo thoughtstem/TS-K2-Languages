@@ -8,7 +8,8 @@
 
          define-start
 
-         sprite->pointer-tree)
+         sprite->pointer-tree
+         colorize-sprite)
 
 (require game-engine
          game-engine-demos-common
@@ -541,13 +542,12 @@
                     ))
 
   (define bg-entity
-    (reduce-quality (sprite->entity bg-sprite 
-                                    #:name "bg"
-                                    #:position (posn 0 0)
-                                    #:components (on-key "i" #:rule (λ (g e) (not (get-entity "instructions" g)))
-                                                         (spawn instructions-entity
-                                                                #:relative? #f))))
-    )
+    (sprite->entity bg-sprite 
+                    #:name "bg"
+                    #:position (posn 0 0)
+                    #:components (on-key "i" #:rule (λ (g e) (not (get-entity "instructions" g)))
+                                         (spawn instructions-entity
+                                                #:relative? #f))))
 
   (define trees-list
     (map (curryr remove-component (or/c physical-collider?
