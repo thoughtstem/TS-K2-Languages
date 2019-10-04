@@ -8,12 +8,9 @@
     (all-from-out "./assets.rkt")
     (all-from-out racket)
     (all-from-out clicker-lib)
-    (all-from-out animal-assets) 
-    (all-from-out cartoon-assets))
+    )
 
   (require racket
-           (only-in cartoon-assets cherry FOREST-BG)
-           animal-assets
            (except-in clicker-lib FOREST-BG start-forest)
            "./start.rkt"
            "./assets.rkt"
@@ -22,12 +19,21 @@
 
   #:wrapper launch-game-engine
 
-  [start-forest F (overlay (pict->bitmap play-outline-icon) 
-                           (bg->play-icon FOREST-BG))]
+  [start-fantasy F (bg->play-icon GRASSY-BG)]
 
-  [start-desert D (overlay (pict->bitmap play-outline-icon) 
-                           (bg->play-icon DESERT-BG))]
+  [start-space   S (bg->play-icon SPACE-BG)]
 
+  [start-clouds  C (bg->play-icon CLOUD-BG)]
+
+  ;reccommended CURSORS
+  ;need icon for randoms
+  [alien      a  (draw-sprite alien)]
+  [bee        b  (draw-sprite bee)]
+
+
+  ;reccommended COLLECTS
+
+  #|
   [hammer     p (draw-sprite hammer)]
   [cage       c (draw-sprite cage)]
   [meteor     m (draw-sprite meteor)]
@@ -44,7 +50,7 @@
 
   [freeze    f (draw-sprite freeze)]
   [slow      s (draw-sprite slow)]
-  [light     l (draw-sprite light)]
+  [light     l (draw-sprite light)] |#
 
   [rand     ? question-icon]  
 
