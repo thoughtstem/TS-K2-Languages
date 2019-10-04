@@ -1,3 +1,3 @@
-clicker-cartoon-collect
+clicker-cartoon-avoid
 ====================
 README text here.

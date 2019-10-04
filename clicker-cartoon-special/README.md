@@ -1,3 +1,3 @@
-clicker-cartoon-collect
+clicker-cartoon-special
 ====================
 README text here.
