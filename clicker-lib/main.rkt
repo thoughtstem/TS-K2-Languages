@@ -2,14 +2,19 @@
 
 (provide (all-from-out "./assets.rkt")
          (all-from-out ts-icons)
-         ;(all-from-out clicker-assets)
-         (all-from-out animal-assets)
+         ;(all-from-out clicker-assets)     
          (all-from-out colors-as-strings)
          bg->play-icon
          rand
          (all-from-out game-engine)
          (all-from-out game-engine-demos-common)
-         (all-from-out "./clicker-lang.rkt"))
+         (all-from-out "./clicker-lang.rkt")
+         
+         ;get rid of these eventually?
+         ;likely will conflict with other sprite collections
+         cat dog horse rabbit
+         apple kiwi onion potato tomato
+         question-icon)
 
 (require "./assets.rkt"
          ts-icons

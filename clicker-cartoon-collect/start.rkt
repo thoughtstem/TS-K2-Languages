@@ -108,6 +108,3 @@
               (list cloud1 cloud2
                     cloud3 cloud4))
 
-
-
-

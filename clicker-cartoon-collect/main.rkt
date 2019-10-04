@@ -21,37 +21,24 @@
 
   [start-fantasy F (bg->play-icon GRASSY-BG)]
 
-  [start-space   S (bg->play-icon SPACE-BG)]
+  ;[start-space   S (bg->play-icon SPACE-BG)]
 
   [start-clouds  C (bg->play-icon CLOUD-BG)]
 
-  ;reccommended CURSORS
-  ;need icon for randoms
-  [alien      a  (draw-sprite alien)]
-  [bee        b  (draw-sprite bee)]
+  ;recommended CURSORS
+  [dragon  d (draw-sprite dragon)]
+  [knight  k (draw-sprite knight)]
+  [pilot   p (draw-sprite pilot)]
+  [bird    b (draw-sprite bird)]
+
+  ;recommended COLLECTS
+  [coin      c (draw-sprite coin)]
+  [mushroom  m (draw-sprite mushroom)]
+  ;NEEDS ICON
+  [fruit     f (draw-sprite apple-sprite)]
 
 
-  ;reccommended COLLECTS
-
-  #|
-  [hammer     p (draw-sprite hammer)]
-  [cage       c (draw-sprite cage)]
-  [meteor     m (draw-sprite meteor)]
-  [glove      g (draw-sprite glove)]
-  [white-hand w (draw-sprite white-hand)]
-
-  [tri          d (draw-sprite tri)]
-  [bat          h (draw-sprite bat)]
-  [bee          r (draw-sprite bee)]
-  [red-eye      x (draw-sprite red-eye)]
-
-  [cherry     a (draw-sprite cherry)]
-  [star       k (draw-sprite star)]
-
-  [freeze    f (draw-sprite freeze)]
-  [slow      s (draw-sprite slow)]
-  [light     l (draw-sprite light)] |#
-
-  [rand     ? question-icon]  
+  ;rand!
+  [rand   ? question-icon]  
 
   )
