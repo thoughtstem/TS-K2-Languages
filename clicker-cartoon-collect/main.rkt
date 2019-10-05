@@ -2,22 +2,22 @@
 
 (require ratchet)
 
+;how do I get this to work??!?
+#;(define rand
+  (lambda () (first (shuffle dragon knight pilot bird
+                             coin fruit mushroom))))
+
 (define-ratchet-lang
   (provide
-    (all-from-out "./start.rkt")
-    (all-from-out "./assets.rkt")
-    (all-from-out racket)
-    (all-from-out clicker-lib)
-    )
+    (all-from-out clicker-cartoon-lib)
+    (all-from-out racket))
 
   (require racket
-           (except-in clicker-lib FOREST-BG start-forest)
-           "./start.rkt"
-           "./assets.rkt"
-           (only-in 2htdp/image overlay)
-           (only-in pict pict->bitmap))
+           clicker-cartoon-lib)
 
   #:wrapper launch-game-engine
+
+  
 
   [start-fantasy F (bg->play-icon GRASSY-BG)]
 
