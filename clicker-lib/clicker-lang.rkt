@@ -47,7 +47,7 @@
 
 (define (make-pointer sprite . options)
   (define color (findf (or/c string? symbol?) options))
-  (define s (call-if-proc sprite))
+  (define s (apply-image-function (curry change-img-alpha -100) (call-if-proc sprite)))
   (sprite->entity (if color
                     (colorize-sprite color s)
                     s)
@@ -145,6 +145,11 @@
           (remove-storage "stored-speed" _))
       e)))
 
+(define (reset-offset as)
+  (~> as
+      (set-x-offset 0 _)
+      (set-y-offset 0 _)))
+
 (define (make-collectible sprite-or-proc . options)
   (define spd (or (findf number? options)
                     2))
@@ -163,9 +168,9 @@
       (sprite-or-proc)
       sprite-or-proc))
 
-  (sprite->entity  (if color
-                       (colorize-sprite color sprite)
-                       sprite)
+  (sprite->entity  (reset-offset (if color
+                                     (colorize-sprite color sprite)
+                                     sprite))
                    #:name        "collectible"
                    #:position    (posn 0 0)
                    #:components  (speed spd)
@@ -202,9 +207,9 @@
     (if (procedure? sprite-or-proc)
       (sprite-or-proc)
       sprite-or-proc))
-  (sprite->entity (if color
-                      (colorize-sprite color sprite)
-                      sprite)
+  (sprite->entity (reset-offset (if color
+                                    (colorize-sprite color sprite)
+                                    sprite))
                       #:name "avoidable"
                       #:position (posn 0 0)
                       #:components (speed spd)
@@ -245,9 +250,9 @@
                       [(fast-sprite-equal? sprite chest-sprite) "chest"]
                       [else (or (findf number? options)
                                 100)]))
-  (sprite->entity (if color
-                         (colorize-sprite color sprite)
-                         sprite)
+  (sprite->entity (reset-offset (if color
+                                    (colorize-sprite color sprite)
+                                    sprite))
                        #:name "special"
                        #:position (posn 0 0)
                        #:components (hidden)
