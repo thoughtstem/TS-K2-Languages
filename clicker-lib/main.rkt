@@ -42,11 +42,11 @@
                   PINK-BG)
          "./clicker-lang.rkt")
 
-(define (bg->play-icon bg)
+(define (bg->play-icon bg [x 624] [y 420])
   (overlay play-outline-icon 
            ((compose (curry change-img-bright 40)
                      (curry change-img-sat -20))
-            (crop 624 420 32 24 bg))))
+            (crop x y 32 24 bg))))
 
 (define rand
   (lambda () (first (shuffle 
