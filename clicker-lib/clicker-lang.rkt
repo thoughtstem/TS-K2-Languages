@@ -164,9 +164,7 @@
           (on-edge 'bottom (set-direction 270))))
   
   (define sprite
-    (if (procedure? sprite-or-proc)
-      (sprite-or-proc)
-      sprite-or-proc))
+    (call-if-proc sprite-or-proc))
 
   (sprite->entity  (reset-offset (if color
                                      (colorize-sprite color sprite)
@@ -273,7 +271,7 @@
 
 (define (call-if-proc p)
   (if (procedure? p)
-    (p)
+    (call-if-proc (p))
     p))
 
 (define (start-clicker pointer-sprite collectible-sprites avoidable-sprites special-sprites 

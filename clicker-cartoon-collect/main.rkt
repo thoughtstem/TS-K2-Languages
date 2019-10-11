@@ -2,28 +2,26 @@
 
 (require ratchet)
 
-;how do I get this to work??!?
-#;(define rand
-  (lambda () (first (shuffle dragon knight pilot bird
-                             coin fruit mushroom))))
 
 (define-ratchet-lang
   (provide
     (all-from-out clicker-cartoon-lib)
-    (all-from-out racket))
+    (all-from-out racket)
+    rand)
 
   (require racket
-           clicker-cartoon-lib)
+           (except-in clicker-cartoon-lib rand)
+           (only-in 2htdp/image scale)
+           "./rand.rkt")
 
   #:wrapper launch-game-engine
-
   
 
-  [start-fantasy F (bg->play-icon GRASSY-BG)]
+  [start-fantasy F (bg->play-icon (scale .25 GRASSY-BG) 20 140)]
+  
+  ;[start-space   S (bg->play-icon (scale .25 SPACE-BG) 415 130)]
 
-  ;[start-space   S (bg->play-icon SPACE-BG)]
-
-  [start-clouds  C (bg->play-icon CLOUD-BG)]
+  [start-clouds  C (bg->play-icon (scale .25 CLOUD-BG) 10 20)]
 
   ;recommended CURSORS
   [dragon  d (draw-sprite dragon)]
@@ -37,8 +35,7 @@
   ;NEEDS ICON
   [fruit     f (draw-sprite apple-sprite)]
 
-
   ;rand!
-  ;[rand   ? question-icon]  
+  [rand   ? question-icon]  
 
   )
