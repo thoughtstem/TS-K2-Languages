@@ -27,7 +27,8 @@
          greenalien-sprite
          greenufo-sprite
          boy-sprite
-         spaceship01-sprite)
+         spaceship01-sprite
+         meteor01-sprite)
 
 (require cartoon-sprites
          (only-in game-engine sprite->cursor-sprite)

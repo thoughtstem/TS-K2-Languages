@@ -10,7 +10,8 @@
 
   (require racket
            (except-in clicker-cartoon-lib rand)
-           (only-in 2htdp/image square)
+           (only-in 2htdp/image square
+                                scale)
            "./rand.rkt")
 
   #:wrapper launch-game-engine
@@ -40,7 +41,7 @@
   [human    h (draw-sprite boy-sprite)]
   [goblin   g (draw-sprite goblin)]
   [zombie   z (draw-sprite zombie)]
-  [meteor   m (draw-sprite meteor)]
+  [meteor   m (draw-sprite meteor01-sprite)]
 
   ;COLORS
   [red            R (square 32 'solid 'red)]

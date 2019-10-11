@@ -202,9 +202,8 @@
                     2))
   (define color (findf (or/c string? symbol?) options))
   (define sprite
-    (if (procedure? sprite-or-proc)
-      (sprite-or-proc)
-      sprite-or-proc))
+    (call-if-proc sprite-or-proc))
+  
   (sprite->entity (reset-offset (if color
                                     (colorize-sprite color sprite)
                                     sprite))
@@ -239,9 +238,7 @@
 (define (make-special sprite-or-proc . options)
   (define color (findf (or/c string? symbol?) options))
   (define sprite
-    (if (procedure? sprite-or-proc)
-      (sprite-or-proc)
-      sprite-or-proc))
+    (call-if-proc sprite-or-proc))
   (define value (cond [(fast-sprite-equal? sprite a:freeze) "freeze"]
                       [(fast-sprite-equal? sprite a:slow) "slow"]
                       [(fast-sprite-equal? sprite a:light) "light"]
