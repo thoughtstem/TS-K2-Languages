@@ -32,7 +32,8 @@
          (only-in game-engine
                   change-img-sat
                   change-img-bright
-                  draw-sprite)
+                  draw-sprite
+                  sprite->cursor-sprite)
          (only-in game-engine-demos-common
                   FOREST-BG
                   DESERT-BG

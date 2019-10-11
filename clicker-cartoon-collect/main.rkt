@@ -39,6 +39,6 @@
 
 
   ;rand!
-  [rand   ? question-icon]  
+  ;[rand   ? question-icon]  
 
   )

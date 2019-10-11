@@ -8,7 +8,8 @@
     (all-from-out racket))
 
   (require racket
-           clicker-cartoon-lib)
+           clicker-cartoon-lib
+           (only-in 2htdp/image square))
 
   #:wrapper launch-game-engine
 
@@ -27,12 +28,27 @@
 
   ;recommended COLLECTS
   [cow      c (draw-sprite coin)]
-  [mushroom  m (draw-sprite mushroom)]
   ;NEEDS ICON
-  [fruit     f (draw-sprite apple-sprite)]
+  [alien    a (draw-sprite greenalien-sprite)]
+  ;NEEDS ICON
+  [fruit    f (draw-sprite apple-sprite)]
 
+  ;recommended AVOIDS
+  ;NEEDS ICON
+  [human    h (draw-sprite boy-sprite)]
+  [goblin   g (draw-sprite goblin)]
+  [zombie   z (draw-sprite zombie)]
+  [meteor   m (draw-sprite meteor)]
 
-  ;rand!
+  ;COLORS
+  [red            R (square 32 'solid 'red)]
+  [orange         O (square 32 'solid 'orange)]
+  [yellow         Y (square 32 'solid 'yellow)]
+  [green          G (square 32 'solid 'green)]
+  [blue           B (square 32 'solid 'blue)]
+  [purple         P (square 32 'solid 'purple)]
+
+  ;rand!  NEEDS CARTOON SPRITES
   [rand   ? question-icon] 
 
   )
