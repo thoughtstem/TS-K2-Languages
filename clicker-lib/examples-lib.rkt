@@ -14,10 +14,17 @@
          syntax/parse/define)
 
 
-(define code-a-game "Code a game")
+
+(define (code-a-game [something #f])
+  (if something
+      (english "Code a" (string-replace (~a something) "start-" "") "game")
+      "Code a game"))
+
+(define (background something)
+  (english something "game"))
 
 (define (where-the-pointer-is something)
-  (english "where the cursor is " something))
+  (english "where the cursor is" something))
 
 (define (collecting something)
   (english "collecting" something))
@@ -30,7 +37,7 @@
 
 (define (described thing)
   (define (number->power-level n)
-    (~a "power-level-" n))
+    (~a "speed " n))
 
   (define (move-numbers-to-front l)
     (append (map number->power-level (filter number? l))
@@ -39,7 +46,7 @@
 
   (define (replace-rand s)
     (if (string=? (~a s) "rand")
-      "[random]"   
+      "[choose-your-own-sprite]"
       s))
 
   (match thing
@@ -48,7 +55,7 @@
 
 (define-syntax-rule (define-example-code-with-stimuli-inferred lang id stuff ...)
   (begin
-    (new-stimuli id (infer-stimuli stuff ...))
+    (new-stimuli id (~a (infer-stimuli stuff ...) "."))
     (define-example-code 
       lang id stuff ...)))
 
@@ -61,40 +68,58 @@
      #'(english (where-the-pointer-is 
                   (a/an (described 'POINTER)))
                 (collecting 
-                  (list-of (plural (described 'COLLECTABLE)) ...
+                  (list-of (let ([thing (described 'COLLECTABLE)])
+                             (if (string-contains? (~a thing) "[choose-your-own-sprite]")
+                                 (~a thing)
+                                 (plural thing))) ...
                            #:or "nothing")))]
     [(_ POINTER (COLLECTABLE ...) (AVOIDABLE ...))
      #'(english (where-the-pointer-is 
                   (a/an (described 'POINTER)))
                 (collecting 
-                  (list-of (plural (described 'COLLECTABLE)) ...
+                  (list-of (let ([thing (described 'COLLECTABLE)])
+                             (if (string-contains? (~a thing) "[choose-your-own-sprite]")
+                                 (~a thing)
+                                 (plural thing))) ...
                            #:or "nothing"))
                ", and is"
                (avoiding 
-                 (list-of (plural (described 'AVOIDABLE)) ...
+                 (list-of (let ([thing (described 'AVOIDABLE)])
+                             (if (string-contains? (~a thing) "[choose-your-own-sprite]")
+                                 (~a thing)
+                                 (plural thing))) ...
                           #:or "no one")))]
     [(_ POINTER (COLLECTABLE ...) (AVOIDABLE ...) (SPECIAL ...))
      #'(english (where-the-pointer-is
                   (a/an (described 'POINTER)))
                 (collecting 
-                  (list-of (plural (described 'COLLECTABLE)) ...
+                  (list-of (let ([thing (described 'COLLECTABLE)])
+                             (if (string-contains? (~a thing) "[choose-your-own-sprite]")
+                                 (~a thing)
+                                 (plural thing))) ...
                            #:or "nothing"))
                ", and is"
                (avoiding 
-                 (list-of (plural (described 'AVOIDABLE)) ...
+                 (list-of (let ([thing (described 'AVOIDABLE)])
+                             (if (string-contains? (~a thing) "[choose-your-own-sprite]")
+                                 (~a thing)
+                                 (plural thing))) ...
                           #:or "nothing "))
                ", and can get"
                (special 
-                 (list-of (plural (described 'SPECIAL)) ...
+                 (list-of (let ([thing (described 'SPECIAL)])
+                             (if (string-contains? (~a thing) "[choose-your-own-sprite]")
+                                 (~a thing)
+                                 (plural thing))) ...
                           #:or "nothing")))]))
 
 (define-syntax (infer-stimuli stx)
   (syntax-parse stx
     [(_ (start STUFF ...))
-     #'(english code-a-game
+     #'(english (code-a-game 'start)
                 (infer-stimuli-base STUFF ...))]
     [(_ (start STUFF ...) ...)
-     #'(english code-a-game
+     #'(english (code-a-game)
                 "with multiple levels:"
                 (itemize
                   (infer-stimuli-base STUFF ...)
@@ -366,7 +391,7 @@
                ((COLLECTABLE-A 200 COLOR-F))
                ))
 
-    ;introducing mulitple levels
+    ;introducing multiple levels
     (define-example-code-with-stimuli-inferred
       lang
       clicker-special-006
