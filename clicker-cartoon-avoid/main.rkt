@@ -11,7 +11,8 @@
   (require racket
            (except-in clicker-cartoon-lib rand)
            (only-in 2htdp/image square
-                                scale)
+                                scale
+                                crop/align)
            "./rand.rkt")
 
   #:wrapper launch-game-engine
@@ -30,11 +31,11 @@
   [ufo     u (draw-sprite greenufo-sprite)]
 
   ;recommended COLLECTS
-  [cow      c (draw-sprite coin)]
+  [cow     c (crop/align "right" "top" 40 40 (draw-sprite cow))]
   ;NEEDS ICON
-  [alien    a (draw-sprite greenalien-sprite)]
+  [alien   a (draw-sprite greenalien-sprite)]
   ;NEEDS ICON
-  [fruit    f (draw-sprite apple-sprite)]
+  [fruit   f (draw-sprite apple-sprite)]
 
   ;recommended AVOIDS
   ;NEEDS ICON
