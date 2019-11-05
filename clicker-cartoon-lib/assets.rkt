@@ -39,7 +39,7 @@
   (sprite->cursor-sprite dragon-sprite 60 30))
 
 (define cowcursor-sprite
-  (sprite->cursor-sprite cow-sprite 40 20))
+  (sprite->cursor-sprite browncow-sprite 40 20))
 
 
 
