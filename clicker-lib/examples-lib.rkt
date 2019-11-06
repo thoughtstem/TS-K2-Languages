@@ -55,7 +55,7 @@
 
 (define (described-special thing)
   (define (number->points n)
-    (~a n " point"))
+    (~a n "-point"))
 
   (define (move-numbers-to-front l)
     (append (map number->points (filter number? l))
