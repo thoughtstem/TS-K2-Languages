@@ -53,6 +53,24 @@
     [(list noun adj ... ) (apply english (append (move-numbers-to-front adj) (list (replace-rand noun))))]
     [_ (replace-rand thing)]))
 
+(define (described-special thing)
+  (define (number->points n)
+    (~a n " point"))
+
+  (define (move-numbers-to-front l)
+    (append (map number->points (filter number? l))
+            (filter-not number? l)))
+
+
+  (define (replace-rand s)
+    (if (string=? (~a s) "rand")
+      "[choose-your-own-sprite]"
+      s))
+
+  (match thing
+    [(list noun adj ... ) (apply english (append (move-numbers-to-front adj) (list (replace-rand noun))))]
+    [_ (replace-rand thing)]))
+
 (define-syntax-rule (define-example-code-with-stimuli-inferred lang id stuff ...)
   (begin
     (new-stimuli id (~a (infer-stimuli stuff ...) "."))
@@ -107,7 +125,7 @@
                           #:or "nothing "))
                ", and can get"
                (special 
-                 (list-of (let ([thing (described 'SPECIAL)])
+                 (list-of (let ([thing (described-special 'SPECIAL)])
                              (if (string-contains? (~a thing) "[choose-your-own-sprite]")
                                  (~a thing)
                                  (plural thing))) ...
