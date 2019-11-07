@@ -24,14 +24,14 @@
   [start-clouds  C (bg->play-icon (scale .25 CLOUD-BG) 10 20)]
 
   ;recommended CURSORS
-  [dragon  d (draw-sprite dragon)]
-  [knight  k (draw-sprite knight)]
+  [dragon  d (crop/align "right" "top" 90 55 (draw-sprite dragon))]
+  [knight  k (crop/align "center" "center" 85 85 (draw-sprite knight))]
   [pilot   p (draw-sprite pilot)]
   ;NEEDS ICON
   [ufo     u (draw-sprite greenufo-sprite)]
 
   ;recommended COLLECTS
-  [cow     c (crop/align "right" "top" 40 40 (draw-sprite cow))]
+  [cow     c (crop/align "center" "center" 60 40 (draw-sprite cow))]
   ;NEEDS ICON
   [alien   a (draw-sprite greenalien-sprite)]
   ;NEEDS ICON
@@ -39,9 +39,9 @@
 
   ;recommended AVOIDS
   ;NEEDS ICON
-  [human    h (draw-sprite boy-sprite)]
-  [goblin   g (draw-sprite goblin)]
-  [zombie   z (draw-sprite zombie)]
+  [human    h (crop/align "center" "bottom" 60 70 (draw-sprite boy-sprite))]
+  [goblin   g (crop/align "center" "center" 90 90 (draw-sprite goblin))]
+  [zombie   z (crop/align "center" "bottom" 60 70 (draw-sprite zombie))]
   [meteor   m (draw-sprite meteor01-sprite)]
 
   ;COLORS

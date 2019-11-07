@@ -12,7 +12,8 @@
   (require racket
            (except-in clicker-cartoon-lib rand)
            (only-in 2htdp/image scale
-                                crop)
+                                crop
+                                crop/align)
            "./rand.rkt")
 
   #:wrapper launch-game-engine
@@ -25,9 +26,8 @@
   [start-clouds  C (bg->play-icon (scale .25 CLOUD-BG) 10 20)]
 
   ;recommended CURSORS
-  [dragon  d (crop 30 0 65 65 (draw-sprite dragon))]
-  [knight  k (draw-sprite helmet-sprite)]
-           ;(crop 15 2 62 62 (draw-sprite knight))]
+  [dragon  d (crop/align "right" "top" 90 55 (draw-sprite dragon))]
+  [knight  k (crop/align "center" "center" 85 85 (draw-sprite knight))]
   [pilot   p (draw-sprite pilot)]
   [bird    b (draw-sprite bird)]
 

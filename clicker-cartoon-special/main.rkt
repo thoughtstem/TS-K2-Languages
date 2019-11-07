@@ -11,7 +11,8 @@
   (require racket
            (except-in clicker-cartoon-lib rand)
            (only-in 2htdp/image square
-                                scale)
+                                scale
+                                crop/align)
            "./rand.rkt")
 
   #:wrapper launch-game-engine
@@ -23,8 +24,8 @@
   [start-clouds  C (bg->play-icon (scale .25 CLOUD-BG) 10 20)]
 
    ;recommended CURSORS
-  [dragon    d (draw-sprite dragon)]
-  [knight    k (draw-sprite knight)]
+  [dragon    d (crop/align "right" "top" 90 55 (draw-sprite dragon))]
+  [knight    k (crop/align "center" "center" 85 85 (draw-sprite knight))]
   ;NEEDS ICON
   [spaceship s (draw-sprite spaceship01-sprite)]
 
@@ -34,8 +35,8 @@
 
   ;recommended AVOIDS
   ;NEEDS ICON
-  [ninja    n (draw-sprite ninja)]
-  [zombie   z (draw-sprite zombie)]
+  [ninja    n (crop/align "right" "center" 85 85 (draw-sprite ninja))]
+  [zombie   z (crop/align "center" "bottom" 60 70 (draw-sprite zombie))]
   [meteor   m (draw-sprite meteor01-sprite)]
 
   ;recommended SPECIALS

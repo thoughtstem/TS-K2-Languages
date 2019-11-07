@@ -6,4 +6,7 @@
 
 (require "./start.rkt"
          "./assets.rkt"
-         clicker-lib)
+         clicker-lib
+         (only-in 2htdp/image crop/align
+                  image-width
+                  image-height))
