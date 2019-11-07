@@ -8,5 +8,5 @@
   #:avatars (zookeeper elephant hippo kangaroo)
   #:foods   (apple banana fish tomato)
   #:friends (monkey penguin kangaroo elephant)
-  #:colors (red orange yellow blue)
+  #:colors (red orange yellow green blue purple)
   #:rand rand)

@@ -8,6 +8,6 @@
   #:avatars (shark ghost-fish red-fish orange-fish)
   #:foods   (potato cherries mushroom strawberry)
   #:friends (jellyfish octopus crab shark)
-  #:colors  (yellow orange red green)
+  #:colors  (red orange yellow green blue purple)
   #:enemies (shark ghost-fish red-fish orange-fish)
   #:rand rand)

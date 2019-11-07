@@ -6,8 +6,8 @@
   #:lang healer-farm-enemies
   #:start start
   #:avatars (llama horse cow rabbit)
-  #:foods   (apple grapes kiwi pepper)
+  #:foods   (apple kiwi pepper grapes)
   #:friends (sheep dog wolf llama)
-  #:colors  (yellow orange red green)
+  #:colors  (red orange yellow green blue purple)
   #:enemies (sheep dog wolf llama)
   #:rand rand)

@@ -8,5 +8,5 @@
   #:avatars (llama cow rabbit sheep)
   #:foods   (apple banana potato kiwi)
   #:friends (llama cow rabbit sheep)
-  #:colors (red green blue purple)
+  #:colors (red orange yellow green blue purple)
   #:rand rand)
