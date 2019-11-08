@@ -11,7 +11,7 @@
           (npc-sprites '()) 
           (enemy-sprites '()))
 
-  (displayln "Farm game starting!")
+  (displayln "Animal game starting!")
 
   (generic-start
     #:bg               (custom-bg #:rows 2 #:columns 2)

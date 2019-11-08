@@ -5,12 +5,12 @@
 (define-ratchet-lang 
   (provide 
     (all-from-out racket) 
-    (all-from-out healer-farm-lib)
+    (all-from-out healer-animal-lib)
     (all-from-out animal-assets))
 
   (require racket 
            animal-assets 
-           healer-farm-lib)
+           healer-animal-lib)
 
   #:wrapper launch-game-engine
 

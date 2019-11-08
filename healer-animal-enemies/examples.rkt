@@ -3,7 +3,7 @@
 (require healer-lib/examples-lib "./main.rkt")
 
 (define-enemies-examples 
-  #:lang healer-farm-enemies
+  #:lang healer-animal-enemies
   #:start start
   #:avatars (llama horse cow rabbit)
   #:foods   (apple kiwi strawberry grapes)

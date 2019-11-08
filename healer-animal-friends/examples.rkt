@@ -3,7 +3,7 @@
 (require healer-lib/examples-lib "./main.rkt")
 
 (define-friends-examples
-  #:lang healer-farm-friends
+  #:lang healer-animal-friends
   #:start start
   #:avatars (llama cow rabbit pig)
   #:foods   (apple banana mushroom kiwi)
