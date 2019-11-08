@@ -20,11 +20,11 @@
   [llama    l (draw-sprite llama)]
   [cow      c (draw-sprite cow)]
   [rabbit   r (draw-sprite rabbit)]
-  [sheep    s (draw-sprite sheep)]
+  [pig      p (draw-sprite pig)]
 
   [apple    a (draw-sprite apple)]
   [banana   b (draw-sprite banana)]
-  [potato   p (draw-sprite potato)]
+  [mushroom m (draw-sprite mushroom)]
   [kiwi     k (draw-sprite kiwi)]
 
   [copper   x (draw-sprite copper)]

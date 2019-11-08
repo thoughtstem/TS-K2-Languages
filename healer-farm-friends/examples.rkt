@@ -5,8 +5,8 @@
 (define-friends-examples
   #:lang healer-farm-friends
   #:start start
-  #:avatars (llama cow rabbit sheep)
-  #:foods   (apple banana potato kiwi)
-  #:friends (llama cow rabbit sheep)
+  #:avatars (llama cow rabbit pig)
+  #:foods   (apple banana mushroom kiwi)
+  #:friends (llama cow rabbit pig)
   #:colors (red orange yellow green blue purple)
   #:rand rand)
