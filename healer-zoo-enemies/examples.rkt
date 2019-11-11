@@ -8,6 +8,6 @@
   #:avatars (monkey elephant hippo kangaroo)
   #:foods   (apple banana fish tomato)
   #:friends (penguin zookeeper monkey elephant)
-  #:colors  (yellow orange red green)
+  #:colors  (red orange yellow green blue purple)
   #:enemies (monkey elephant hippo kangaroo)
   #:rand rand)

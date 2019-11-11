@@ -14,7 +14,7 @@
 
 (define-syntax-rule (define-example-code-with-stimuli-inferred lang id stuff ...)
   (begin
-    (new-stimuli id (infer-stimuli stuff ...))
+    (new-stimuli id (~a (infer-stimuli stuff ...) "."))
     (define-example-code 
       lang id stuff ...)))
 
@@ -27,32 +27,41 @@
      #'(english (where-the-player-is 
                   (a/an (described 'AVATAR)))
                 (eating 
-                  (list-of (plural (described 'FOOD)) ...
+                  (list-of (let ([thing (described 'FOOD)])
+                             (if (string-contains? (~a thing) "[choose-your-own-sprite]")
+                                 (~a thing)
+                                 (plural thing))) ...
                            #:or "nothing")))]
     [(_ AVATAR (FOOD ...) (FRIENDS ...))
      #'(english (where-the-player-is 
                   (a/an (described 'AVATAR)))
                 (eating 
-                  (list-of (plural (described 'FOOD)) ...
+                  (list-of (let ([thing (described 'FOOD)])
+                             (if (string-contains? (~a thing) "[choose-your-own-sprite]")
+                                 (~a thing)
+                                 (plural thing))) ...
                            #:or "nothing"))
-               ", and is"
+               ", and with"
                (friends-with 
-                 (list-of (plural (described 'FRIENDS)) ...
-                          #:or "no one")))]
+                 (list-of (described 'FRIENDS) ...
+                          #:or "no")))]
     [(_ AVATAR (FOOD ...) (FRIENDS ...) (ENEMIES ...))
      #'(english (where-the-player-is 
                   (a/an (described 'AVATAR)))
                 (eating 
-                  (list-of (plural (described 'FOOD)) ...
+                  (list-of (let ([thing (described 'FOOD)])
+                             (if (string-contains? (~a thing) "[choose-your-own-sprite]")
+                                 (~a thing)
+                                 (plural thing))) ...
                            #:or "nothing"))
-               ", and is"
+               ", and with"
                (friends-with 
-                 (list-of (plural (described 'FRIENDS)) ...
+                 (list-of (described 'FRIENDS) ...
                           #:or "no one"))
-               ", and whose"
+               ", and with"
                (enemies-are 
-                 (list-of (plural (described 'ENEMIES)) ...
-                          #:or "no one")))]))
+                 (list-of (described 'ENEMIES) ...
+                          #:or "no")))]))
 
 (define-syntax (infer-stimuli stx)
   (syntax-parse stx
@@ -75,7 +84,7 @@
 
   (define (replace-rand s)
     (if (string=? (~a s) "rand")
-      "[random]"   
+      "[choose-your-own-sprite]"
       s))
 
   (match thing
@@ -85,16 +94,16 @@
 (define code-a-game "Code a game")
 
 (define (where-the-player-is something)
-  (english "where the player is" something))
+  (english "with" something))
 
 (define (eating something)
   (english "eating" something))
 
 (define (friends-with something)
-  (english "friends with" something))
+  (english something "friends"))
 
 (define (enemies-are something)
-  (english "enemies are" something))
+  (english something "enemies"))
 
 
 (define-syntax-rule (define-food-examples 
@@ -107,33 +116,33 @@
 
     (define-example-code-with-stimuli
       lang
-      healer-000
+      hello-world-000
       "Code a basic game with no customizations."
       (START))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-001
+      healer-foods-001
       (START AVATAR-A))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-002
+      healer-foods-002
       (START AVATAR-A (FOOD-A)))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-003
+      healer-foods-003
       (START AVATAR-B (FOOD-B FOOD-C)))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-004
+      healer-foods-004
       (START AVATAR-C (FOOD-C FOOD-D FOOD-A)))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-005
+      healer-foods-005
       (START RAND (RAND RAND RAND)))))
 
 (define-syntax-rule (define-friends-examples 
@@ -142,82 +151,82 @@
                       #:avatars (AVATAR-A AVATAR-B AVATAR-C AVATAR-D) 
                       #:foods   (FOOD-A   FOOD-B   FOOD-C   FOOD-D) 
                       #:friends (FRIEND-A   FRIEND-B   FRIEND-C   FRIEND-D) 
-                      #:colors  (COLOR-A COLOR-B COLOR-C COLOR-D)
+                      #:colors  (COLOR-A COLOR-B COLOR-C COLOR-D COLOR-E COLOR-F)
                       #:rand  RAND)
   (begin
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-006
+      healer-friends-001
       (START AVATAR-A
              (FOOD-A)
              (FRIEND-A)))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-007
+      healer-friends-002
       (START AVATAR-B
              (FOOD-B FOOD-C)
              (FRIEND-B FRIEND-C)))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-008
+      healer-friends-003
       (START (AVATAR-C COLOR-A)
              (FOOD-D FOOD-A)
              (FRIEND-D)))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-009
+      healer-friends-004
       (START (AVATAR-D COLOR-B)
              (FOOD-B FOOD-C)
              (FRIEND-A RAND)))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-010
-      (START (RAND COLOR-C)
-             (RAND RAND)
-             (RAND RAND RAND)))
+      healer-friends-005
+      (START (FOOD-A COLOR-C)
+             (FOOD-D FOOD-B)
+             (FRIEND-B FRIEND-D FRIEND-C)))
 
 
     ; -- section 3 - more friends
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-011
+      healer-friends-006
       (START AVATAR-A
              ((FOOD-D 5))
              ((FRIEND-B 5))))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-012
+      healer-friends-007
       (START (AVATAR-B COLOR-D)
-             ((FOOD-A COLOR-A))
-             ((FRIEND-C COLOR-B))))
+             (FOOD-A)
+             ((FRIEND-C COLOR-E))))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-013
+      healer-friends-008
       (START AVATAR-C
              ((FOOD-B COLOR-B 4) (FOOD-C COLOR-C 2))
-             ((FRIEND-D COLOR-D 3))))
+             ((FRIEND-D COLOR-F 3))))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-014
+      healer-friends-009
       (START AVATAR-D
-             ((FOOD-D COLOR-D 5))
+             ((FOOD-D COLOR-E 5))
              ((FOOD-A 3) (FOOD-B COLOR-A))))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-015
+      healer-friends-010
       (START (RAND COLOR-B)
              ((FOOD-C COLOR-C) (FOOD-D COLOR-D) (FOOD-A 2))
-             ((FRIEND-A 2) (RAND COLOR-A))))))
+             ((FRIEND-A 2) (RAND COLOR-F))))))
 
 
 (define-syntax-rule (define-enemies-examples 
@@ -226,7 +235,7 @@
                       #:avatars (AVATAR-A AVATAR-B AVATAR-C AVATAR-D) 
                       #:foods   (FOOD-A FOOD-B FOOD-C FOOD-D) 
                       #:friends (FRIEND-A   FRIEND-B   FRIEND-C   FRIEND-D) 
-                      #:colors  (COLOR-A COLOR-B COLOR-C COLOR-D)
+                      #:colors  (COLOR-A COLOR-B COLOR-C COLOR-D COLOR-E COLOR-F)
                       #:enemies (ENEMY-A   ENEMY-B   ENEMY-C   ENEMY-D) 
                       #:rand  RAND)
   (begin
@@ -234,7 +243,7 @@
     ; === ANIMAL/ENEMIES
     (define-example-code-with-stimuli-inferred
       lang
-      healer-016
+      healer-enemies-001
       (START AVATAR-A
              ((FOOD-A 5))
              ((FRIEND-A 5))
@@ -242,41 +251,41 @@
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-017
+      healer-enemies-002
       (START RAND
-             ((FOOD-B COLOR-A))
+             ((FOOD-B COLOR-D))
              ((FRIEND-B 2))
              ((ENEMY-B 3))))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-018
-      (START (AVATAR-B COLOR-D)
-             (RAND RAND RAND)
-             (RAND RAND)
-             (RAND)))
+      healer-enemies-003
+      (START AVATAR-C
+             ((FOOD-C COLOR-F))
+             ((FOOD-B 5))
+             (FOOD-D)))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-019
+      healer-enemies-004
       (START FOOD-A
-             ((FOOD-B COLOR-B 5) (FOOD-C COLOR-D 5))
+             ((FOOD-B COLOR-B 5) (FOOD-C COLOR-E 5))
              (FOOD-D FOOD-A)
              ((FOOD-B COLOR-A 3))))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-020
+      healer-enemies-005
       (START RAND
              ((FOOD-A COLOR-C 5))
-             ((FOOD-A COLOR-B 5))
-             ((FOOD-A COLOR-A 5))))
+             ((FOOD-A COLOR-E 5))
+             ((FOOD-A COLOR-D 5))))
 
     ; section 5 - more enemies
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-021
+      healer-enemies-006
       (START AVATAR-A
              ((FOOD-A COLOR-D 5)))
       (START AVATAR-A
@@ -285,7 +294,7 @@
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-022
+      healer-enemies-007
       (START (AVATAR-A COLOR-B)
              ((FOOD-B 8))
              (FRIEND-D))
@@ -296,31 +305,19 @@
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-023
-      (START AVATAR-B
-             ((FOOD-C COLOR-A 2) (FOOD-D COLOR-C 3))
-             (FRIEND-A (FRIEND-B COLOR-B) (FRIEND-C COLOR-A 2))
-             (RAND))
-      (START RAND
-             (RAND RAND)
-             (RAND RAND RAND)
-             (RAND RAND RAND RAND)))
-
-    (define-example-code-with-stimuli-inferred
-      lang
-      healer-024
+      healer-enemies-008
       (START AVATAR-C
-             ((AVATAR-C COLOR-D 2))
+             ((AVATAR-C COLOR-A 2))
              ((AVATAR-C COLOR-B 3))
-             ((AVATAR-C COLOR-A)))
+             ((AVATAR-C COLOR-C)))
       (START FOOD-A
-             ((FOOD-A COLOR-A 2))
+             ((FOOD-A COLOR-E 2))
              ((FOOD-A COLOR-D 3))
-             ((FOOD-A COLOR-A 4))))
+             ((FOOD-A COLOR-F 4))))
 
     (define-example-code-with-stimuli-inferred
       lang
-      healer-025
+      healer-enemies-009
       (START AVATAR-D
              ((FOOD-B COLOR-B 2)))
       (START AVATAR-A
@@ -329,5 +326,18 @@
       (START AVATAR-B
              (FOOD-D)
              (FRIEND-A)
+             ((ENEMY-C COLOR-A 3))))
+
+    (define-example-code-with-stimuli-inferred
+      lang
+      healer-enemies-010
+      (START AVATAR-C
+             ((FOOD-A 2)))
+      (START AVATAR-C
+             ((FOOD-B COLOR-E))
+             ((FRIEND-D COLOR-D 4)))
+      (START AVATAR-C
+             (FOOD-D)
+             ((FRIEND-A 2))
              ((ENEMY-C COLOR-A 3))))
     ))

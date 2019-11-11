@@ -5,12 +5,12 @@
 (define-ratchet-lang 
   (provide 
     (all-from-out racket) 
-    (all-from-out healer-farm-lib)
+    (all-from-out healer-animal-lib)
     (all-from-out animal-assets))
 
   (require racket 
            animal-assets 
-           healer-farm-lib
+           healer-animal-lib
            (only-in 2htdp/image square))
 
   #:wrapper launch-game-engine
@@ -20,11 +20,11 @@
   [llama    l (draw-sprite llama)]
   [cow      c (draw-sprite cow)]
   [rabbit   r (draw-sprite rabbit)]
-  [sheep    s (draw-sprite sheep)]
+  [pig      p (draw-sprite pig)]
 
   [apple    a (draw-sprite apple)]
   [banana   b (draw-sprite banana)]
-  [potato   p (draw-sprite potato)]
+  [mushroom m (draw-sprite mushroom)]
   [kiwi     k (draw-sprite kiwi)]
 
   [copper   x (draw-sprite copper)]

@@ -4,48 +4,57 @@
 
 (define-ratchet-lang
   (provide
-    (all-from-out "./start.rkt")
-    (all-from-out "./assets.rkt")
+    (all-from-out clicker-cartoon-lib)
     (all-from-out racket)
-    (all-from-out clicker-lib)
-    (all-from-out animal-assets) 
-    (all-from-out cartoon-assets))
+    rand)
 
   (require racket
-           (only-in cartoon-assets cherry FOREST-BG)
-           animal-assets
-           (except-in clicker-lib FOREST-BG start-forest)
-           "./start.rkt"
-           "./assets.rkt"
-           (only-in 2htdp/image overlay)
-           (only-in pict pict->bitmap))
+           (except-in clicker-cartoon-lib rand)
+           (only-in 2htdp/image square
+                                scale
+                                crop/align)
+           "./rand.rkt")
 
   #:wrapper launch-game-engine
 
-  [start-forest F (overlay (pict->bitmap play-outline-icon) 
-                           (bg->play-icon FOREST-BG))]
+  [start-fantasy F (bg->play-icon (scale .25 GRASSY-BG) 20 140)]
+  
+  [start-space   S (bg->play-icon (scale .25 SPACE-BG) 415 130)]
 
-  [start-desert D (overlay (pict->bitmap play-outline-icon) 
-                           (bg->play-icon DESERT-BG))]
+  [start-clouds  C (bg->play-icon (scale .25 CLOUD-BG) 10 20)]
 
-  [hammer     p (draw-sprite hammer)]
-  [cage       c (draw-sprite cage)]
-  [meteor     m (draw-sprite meteor)]
-  [glove      g (draw-sprite glove)]
-  [white-hand w (draw-sprite white-hand)]
+   ;recommended CURSORS
+  [dragon    d (crop/align "right" "top" 90 55 (draw-sprite dragon))]
+  [knight    k (crop/align "center" "center" 85 85 (draw-sprite knight))]
+  ;NEEDS ICON
+  [spaceship s (draw-sprite spaceship01-sprite)]
 
-  [tri          d (draw-sprite tri)]
-  [bat          h (draw-sprite bat)]
-  [bee          r (draw-sprite bee)]
-  [red-eye      x (draw-sprite red-eye)]
+  ;recommended COLLECTS
+  ;NEEDS ICON
+  [alien    a (draw-sprite greenalien-sprite)]
 
-  [cherry     a (draw-sprite cherry)]
-  [star       k (draw-sprite star)]
+  ;recommended AVOIDS
+  ;NEEDS ICON
+  [ninja    n (crop/align "right" "center" 85 85 (draw-sprite ninja))]
+  [zombie   z (crop/align "center" "bottom" 60 70 (draw-sprite zombie))]
+  [meteor   m (draw-sprite meteor01-sprite)]
 
-  [freeze    f (draw-sprite freeze)]
-  [slow      s (draw-sprite slow)]
-  [light     l (draw-sprite light)]
+  ;recommended SPECIALS
+  [coin         c (draw-sprite coin)]
+  [gem          g (draw-sprite gem)]
+  [ice-power    i (draw-sprite ice-power)]
+  [turtle-power t (draw-sprite turtle-power)]
+  [light-power  l (draw-sprite light-power)]
 
-  [rand     ? question-icon]  
+  ;COLORS
+  [red            R (square 32 'solid 'red)]
+  [orange         O (square 32 'solid 'orange)]
+  [yellow         Y (square 32 'solid 'yellow)]
+  [green          G (square 32 'solid 'green)]
+  [blue           B (square 32 'solid 'blue)]
+  [purple         P (square 32 'solid 'purple)]
+
+  ;rand!  NEEDS CARTOON SPRITES
+  [rand   ? question-icon] 
 
   )

@@ -8,7 +8,8 @@
 
          define-start
 
-         sprite->pointer-tree)
+         sprite->pointer-tree
+         colorize-sprite)
 
 (require game-engine
          game-engine-demos-common
@@ -46,7 +47,7 @@
 
 (define (make-pointer sprite . options)
   (define color (findf (or/c string? symbol?) options))
-  (define s (call-if-proc sprite))
+  (define s (apply-image-function (curry change-img-alpha -100) (call-if-proc sprite)))
   (sprite->entity (if color
                     (colorize-sprite color s)
                     s)
@@ -144,6 +145,11 @@
           (remove-storage "stored-speed" _))
       e)))
 
+(define (reset-offset as)
+  (~> as
+      (set-x-offset 0 _)
+      (set-y-offset 0 _)))
+
 (define (make-collectible sprite-or-proc . options)
   (define spd (or (findf number? options)
                     2))
@@ -158,13 +164,11 @@
           (on-edge 'bottom (set-direction 270))))
   
   (define sprite
-    (if (procedure? sprite-or-proc)
-      (sprite-or-proc)
-      sprite-or-proc))
+    (call-if-proc sprite-or-proc))
 
-  (sprite->entity  (if color
-                       (colorize-sprite color sprite)
-                       sprite)
+  (sprite->entity  (reset-offset (if color
+                                     (colorize-sprite color sprite)
+                                     sprite))
                    #:name        "collectible"
                    #:position    (posn 0 0)
                    #:components  (speed spd)
@@ -198,12 +202,11 @@
                     2))
   (define color (findf (or/c string? symbol?) options))
   (define sprite
-    (if (procedure? sprite-or-proc)
-      (sprite-or-proc)
-      sprite-or-proc))
-  (sprite->entity (if color
-                      (colorize-sprite color sprite)
-                      sprite)
+    (call-if-proc sprite-or-proc))
+  
+  (sprite->entity (reset-offset (if color
+                                    (colorize-sprite color sprite)
+                                    sprite))
                       #:name "avoidable"
                       #:position (posn 0 0)
                       #:components (speed spd)
@@ -235,18 +238,16 @@
 (define (make-special sprite-or-proc . options)
   (define color (findf (or/c string? symbol?) options))
   (define sprite
-    (if (procedure? sprite-or-proc)
-      (sprite-or-proc)
-      sprite-or-proc))
+    (call-if-proc sprite-or-proc))
   (define value (cond [(fast-sprite-equal? sprite a:freeze) "freeze"]
                       [(fast-sprite-equal? sprite a:slow) "slow"]
                       [(fast-sprite-equal? sprite a:light) "light"]
                       [(fast-sprite-equal? sprite chest-sprite) "chest"]
                       [else (or (findf number? options)
                                 100)]))
-  (sprite->entity (if color
-                         (colorize-sprite color sprite)
-                         sprite)
+  (sprite->entity (reset-offset (if color
+                                    (colorize-sprite color sprite)
+                                    sprite))
                        #:name "special"
                        #:position (posn 0 0)
                        #:components (hidden)
@@ -267,7 +268,7 @@
 
 (define (call-if-proc p)
   (if (procedure? p)
-    (p)
+    (call-if-proc (p))
     p))
 
 (define (start-clicker pointer-sprite collectible-sprites avoidable-sprites special-sprites 
@@ -541,13 +542,12 @@
                     ))
 
   (define bg-entity
-    (reduce-quality (sprite->entity bg-sprite 
-                                    #:name "bg"
-                                    #:position (posn 0 0)
-                                    #:components (on-key "i" #:rule (λ (g e) (not (get-entity "instructions" g)))
-                                                         (spawn instructions-entity
-                                                                #:relative? #f))))
-    )
+    (sprite->entity bg-sprite 
+                    #:name "bg"
+                    #:position (posn 0 0)
+                    #:components (on-key "i" #:rule (λ (g e) (not (get-entity "instructions" g)))
+                                         (spawn instructions-entity
+                                                #:relative? #f))))
 
   (define trees-list
     (map (curryr remove-component (or/c physical-collider?

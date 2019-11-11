@@ -8,5 +8,5 @@
   #:avatars (orange-fish jellyfish octopus crab)
   #:foods   (apple kiwi mushroom pineapple)
   #:friends (shark ghost-fish red-fish orange-fish)
-  #:colors (red orange yellow blue)
+  #:colors (red orange yellow green blue purple)
   #:rand rand)
