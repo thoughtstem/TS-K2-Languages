@@ -1,6 +1,7 @@
 #lang racket
 
 (provide freeze slow light
+         question-icon
          (rename-out
            [pointer-sprite pointer]
            [cage-sprite cage]

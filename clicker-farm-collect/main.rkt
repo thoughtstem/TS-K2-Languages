@@ -10,7 +10,7 @@
     )
 
   (require racket
-           animal-assets
+           (except-in animal-assets question-icon)
            clicker-lib
            (only-in 2htdp/image overlay square)
            (only-in pict pict->bitmap))
