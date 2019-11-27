@@ -17,7 +17,6 @@
          (only-in adventure page)
          ratchet/util
          (for-syntax racket)
-         (prefix-in a: animal-assets)
          (prefix-in a: "./assets.rkt")
          (only-in lang/posn make-posn))
 
