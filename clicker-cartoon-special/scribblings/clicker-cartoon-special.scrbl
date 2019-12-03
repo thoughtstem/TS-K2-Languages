@@ -5,6 +5,6 @@
 @title{clicker-cartoon-collect}
 @author{thoughtstem}
 
-@defmodule[clicker-cartoon-collect]
+@defmodule[clicker-cartoon-special]
 
 Package Description Here
