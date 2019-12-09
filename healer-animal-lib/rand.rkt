@@ -5,5 +5,12 @@
 (require animal-assets)
 
 (define (rand)
-  (first (shuffle (list chicken llama horse rabbit apple broccoli grapes onion))))
+  (first (shuffle (list zookeeper
+                        monkey
+                        elephant
+                        giraffe
+                        hippo
+                        kangaroo
+                        penguin
+                        zebra))))
 
