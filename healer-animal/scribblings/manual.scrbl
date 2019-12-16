@@ -8,12 +8,5 @@
 
 @defmodulelang[healer-animal]
 
-@section{Functions}
-
-@(include-extracted "../lang/main.rkt")
-
-@section{Image Assets}
-
-@(include-extracted "../assets.rkt")
-
+The umbrella collection for all healer-animal languages. 
 

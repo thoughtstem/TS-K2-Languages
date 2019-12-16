@@ -8,12 +8,6 @@
 
 @defmodulelang[clicker-cartoon]
 
-@section{Functions}
-
-@(include-extracted "../lang/main.rkt")
-
-@section{Image Assets}
-
-@(include-extracted "../assets.rkt")
+This is the umbrella collection for all three clicker-cartoon languages.
 
 
