@@ -24,6 +24,7 @@
     (make-instructions "ARROW KEYS to move"
                        "SPACE to eat food and collect coins"
                        "ENTER to close dialogs"
+                       "H to heal animals"
                        "I to open these instructions"
                        "M to open and close the map")))
 
