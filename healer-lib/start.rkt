@@ -51,11 +51,12 @@
                            (make-instructions "ARROW KEYS to move"
                                               "SPACE to eat food and collect coins"
                                               "ENTER to close dialogs"
+                                              "H to heal animals"
                                               "I to open these instructions"
                                               "M to open and close the map")))
 
   (define avatar
-    (apply make-avatar avatar-sprite))
+    (apply make-healing-avatar avatar-sprite))
 
   (define food-list
     (map (curry apply make-food) food-sprites))
@@ -69,6 +70,7 @@
                  #:starvation-rate starvation-rate
                  #:avatar        avatar
                  #:food-list     food-list
+                 #:npc-list      npc-list
                  #:enemy-list    enemy-list
                  #:score-prefix score-prefix 
                  #:instructions instructions)
