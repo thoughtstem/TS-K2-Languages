@@ -6,7 +6,7 @@
   #:lang clicker-pokemon-avoid
   #:start (start-forest start-snow start-desert)
   #:pointers (ivysaur charmeleon wartortle pikachu)
-  #:collectables (firestone waterstone thunderstone)
+  #:collectables (leafstone firestone thunderstone)
   #:avoidables (jessie james boy girl)
   #:colors (red orange yellow green blue purple)
   #:rand  rand)
