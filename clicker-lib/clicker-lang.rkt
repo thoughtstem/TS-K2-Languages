@@ -36,12 +36,12 @@
                                   (new-sprite sprite-maybe)
                                   sprite-maybe))
 
-                 (define c-hsb (name->color-hsb color-name))
-                 (define h (color-hsb-hue c-hsb))
+                 ;(define c-hsb (name->color-hsb color-name))
+                 ;(define h (color-hsb-hue c-hsb))
                  ;(define s (color-hsb-sat c-hsb))
                  (apply-image-function ;(compose (curry set-img-sat s)
                    ;         (curry set-img-hue h))
-                   (curry set-img-hue h)
+                   (curry set-img-color color-name)
                    sprite))
 
 (define (make-pointer sprite . options)
