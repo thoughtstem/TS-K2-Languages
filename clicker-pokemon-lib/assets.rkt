@@ -9,11 +9,11 @@
                               DESERT-BG
                               SNOW-BG))
 
-(provide (rename-out (firestone-sprite         firestone)
-                     (leafstone-sprite         leafstone)
-                     (thunderstone-sprite      thunderstone)
-                     (waterstone-sprite        waterstone)
-                     (sunstone-sprite          sunstone)
+(provide (rename-out (firestone-sprite         fire-stone)
+                     (leafstone-sprite         leaf-stone)
+                     (thunderstone-sprite      thunder-stone)
+                     (waterstone-sprite        water-stone)
+                     (sunstone-sprite          sun-stone)
 
                      (armoredmewtwo-sprite     mewtwo)
                      (pikachu-sprite           pikachu)
@@ -30,8 +30,8 @@
                      (jessie-sprite            jessie)
                      (james-sprite             james)
                      
-                     (redboy-sprite            boy)
-                     (redgirl-sprite           girl)
+                     (redboy-sprite            trainer-boy)
+                     (redgirl-sprite           trainer-girl)
 
                      (pokeball-sprite          pokeball)
                      
