@@ -7,8 +7,8 @@
   ;edit
   #:start (start-forest start-snow start-desert)
   #:pointers (venasaur charizard blastoise mewtwo)
-  #:collectables (firestone sunstone)
-  #:avoidables (james pokeball girl)
+  #:collectables (fire-stone sun-stone)
+  #:avoidables (james pokeball trainer-girl)
   #:specials (ice-power turtle-power light-power)
   #:colors (red orange yellow green blue purple)
   #:rand  rand)
