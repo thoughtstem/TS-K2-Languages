@@ -35,7 +35,7 @@
 
   ;recommended AVOIDS
   [jessie       j (draw-sprite jessie-sprite)]
-  [mewtwo       m (draw-sprite armored-mewtwo-sprite)]
+  [mewtwo       m (draw-sprite armoredmewtwo-sprite)]
   [trainer-boy  b (draw-sprite redboy-sprite)]
   [trainer-girl g (draw-sprite redgirl-sprite)]
 

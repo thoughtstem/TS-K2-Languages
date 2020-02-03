@@ -15,6 +15,7 @@
 
 
 
+
 (define (code-a-game [something #f])
   (if something
       (english "Code a" (string-replace (~a something) "start-" "") "game")
@@ -43,15 +44,17 @@
     (append (map number->power-level (filter number? l))
             (filter-not number? l)))
 
+  (define (maybe-dash-to-space s)
+    (string-replace (~a s) "-" " "))
 
   (define (replace-rand s)
     (if (string=? (~a s) "rand")
-      "[choose-your-own-sprite]"
-      s))
+        "[choose-your-own-sprite]"
+        s))
 
   (match thing
-    [(list noun adj ... ) (apply english (append (move-numbers-to-front adj) (list (replace-rand noun))))]
-    [_ (replace-rand thing)]))
+    [(list noun adj ... ) (apply english (append (move-numbers-to-front adj) (list (replace-rand (maybe-dash-to-space noun)))))]
+    [_ (replace-rand (maybe-dash-to-space thing))]))
 
 (define (described-special thing)
   (define (number->points n)
