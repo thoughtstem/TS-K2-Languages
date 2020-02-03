@@ -19,7 +19,7 @@
   
 
   [start-forest F (bg->play-icon (scale .25 FOREST-BG) 20 140)]
-  [start-snow   S (bg->play-icon (scale .25 SNOW-BG)   10 20 )]
+  [start-snow   S (bg->play-icon (scale .25 SNOW-BG)   20 140)]
 
   ;recommended CURSORS
   [bulbasaur    b (draw-sprite bulbasaur-sprite)]
