@@ -18,8 +18,8 @@
   #:wrapper launch-game-engine
 
   [start-forest F (bg->play-icon (scale .25 FOREST-BG) 20 140)]
-  [start-snow   S (bg->play-icon (scale .25 SNOW-BG)   10 20 )]
-  [start-desert D (bg->play-icon (scale .25 DESERT-BG) 10 20 )]
+  [start-snow   S (bg->play-icon (scale .25 SNOW-BG)   20 140)]
+  [start-desert D (bg->play-icon (scale .25 DESERT-BG) 20 140)]
 
   ;recommended CURSORS
   [ivysaur      i (draw-sprite ivysaur-sprite)]
