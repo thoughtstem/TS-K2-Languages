@@ -34,7 +34,7 @@
 
   ;recommended AVOIDS
   [james        j (draw-sprite james-sprite)]
-  [pokeball     p (draw-sprite pokeball-sprite)]
+  [pokeball     p (pick-frame pokeball-sprite 7)]
   [trainer-girl         g (draw-sprite redgirl-sprite)]
 
   ;recommended SPECIALS
