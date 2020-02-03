@@ -29,15 +29,15 @@
   
 
   ;recommended COLLECTS
-  [leafstone    l (draw-sprite leafstone-sprite)]
-  [firestone    f (draw-sprite firestone-sprite)]
-  [thunderstone t (draw-sprite thunderstone-sprite)]
+  [leaf-stone    l (draw-sprite leafstone-sprite)]
+  [fire-stone    f (draw-sprite firestone-sprite)]
+  [thunder-stone t (draw-sprite thunderstone-sprite)]
 
   ;recommended AVOIDS
   [jessie       j (draw-sprite jessie-sprite)]
-  [james        a (draw-sprite james-sprite)]
-  [boy          b (draw-sprite redboy-sprite)]
-  [girl         g (draw-sprite redgirl-sprite)]
+  [mewtwo       m (draw-sprite armored-mewtwo-sprite)]
+  [trainer-boy  b (draw-sprite redboy-sprite)]
+  [trainer-girl g (draw-sprite redgirl-sprite)]
 
   ;COLORS
   [red          R (square 32 'solid 'red)]

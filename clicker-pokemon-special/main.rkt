@@ -29,13 +29,13 @@
   [mewtwo       m (draw-sprite armoredmewtwo-sprite)]
 
   ;recommended COLLECTS
-  [firestone    f (draw-sprite firestone-sprite)]
-  [sunstone     s (draw-sprite sunstone-sprite)]
+  [fire-stone    f (draw-sprite firestone-sprite)]
+  [sun-stone     s (draw-sprite sunstone-sprite)]
 
   ;recommended AVOIDS
   [james        j (draw-sprite james-sprite)]
   [pokeball     p (draw-sprite pokeball-sprite)]
-  [girl         g (draw-sprite redgirl-sprite)]
+  [trainer-girl         g (draw-sprite redgirl-sprite)]
 
   ;recommended SPECIALS
   [ice-power    i (draw-sprite ice-power)]
