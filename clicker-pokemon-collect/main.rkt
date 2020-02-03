@@ -30,7 +30,7 @@
   ;recommended COLLECTS
   [leaf-stone    l (draw-sprite leafstone-sprite)]
   [fire-stone    f (draw-sprite firestone-sprite)]
-  [water-stsone   w (draw-sprite waterstone-sprite)]
+  [water-stone   w (draw-sprite waterstone-sprite)]
 
   ;rand!
   [rand         ? question-icon]  

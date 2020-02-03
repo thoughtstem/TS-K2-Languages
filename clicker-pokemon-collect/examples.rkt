@@ -6,5 +6,5 @@
   #:lang clicker-pokemon-collect
   #:start (start-forest start-snow)
   #:pointers (bulbasaur charmander squirtle pikachu)
-  #:collectables (leafstone firestone waterstone)
+  #:collectables (leaf-stone fire-stone water-stone)
   #:rand  rand)
