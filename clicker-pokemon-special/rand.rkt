@@ -6,6 +6,6 @@
 
 (define (rand)
   (first (shuffle (list venasaur charizard blastoise mewtwo
-                        firestone thunderstone
-                        james pokeball girl
+                        fire-stone thunder-stone
+                        james pokeball trainer-girl
                         ice-power turtle-power light-power))))

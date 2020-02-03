@@ -19,8 +19,8 @@
   #:wrapper launch-game-engine
 
   [start-forest F (bg->play-icon (scale .25 FOREST-BG) 20 140)]
-  [start-snow   S (bg->play-icon (scale .25 SNOW-BG)   10 20 )]
-  [start-desert D (bg->play-icon (scale .25 DESERT-BG) 10 20 )]
+  [start-snow   S (bg->play-icon (scale .25 SNOW-BG)   20 140 )]
+  [start-desert D (bg->play-icon (scale .25 DESERT-BG) 20 140)]
 
   ;recommended CURSORS
   [venasaur     v (draw-sprite venasaur-sprite)]
@@ -29,13 +29,13 @@
   [mewtwo       m (draw-sprite armoredmewtwo-sprite)]
 
   ;recommended COLLECTS
-  [firestone    f (draw-sprite firestone-sprite)]
-  [sunstone     s (draw-sprite sunstone-sprite)]
+  [fire-stone    f (draw-sprite firestone-sprite)]
+  [sun-stone     s (draw-sprite sunstone-sprite)]
 
   ;recommended AVOIDS
   [james        j (draw-sprite james-sprite)]
-  [pokeball     p (draw-sprite pokeball-sprite)]
-  [girl         g (draw-sprite redgirl-sprite)]
+  [pokeball     p (pick-frame pokeball-sprite 7)]
+  [trainer-girl         g (draw-sprite redgirl-sprite)]
 
   ;recommended SPECIALS
   [ice-power    i (draw-sprite ice-power)]

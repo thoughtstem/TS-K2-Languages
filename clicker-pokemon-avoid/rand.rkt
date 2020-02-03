@@ -6,5 +6,5 @@
 
 (define (rand)
   (first (shuffle (list ivysaur charmeleon wartortle pikachu
-                        firestone waterstone thunderstone
-                        jessie james boy girl))))
+                        fire-stone water-stone thunder-stone
+                        jessie james trainer-boy trainer-girl))))

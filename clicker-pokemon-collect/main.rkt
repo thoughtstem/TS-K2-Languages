@@ -19,7 +19,7 @@
   
 
   [start-forest F (bg->play-icon (scale .25 FOREST-BG) 20 140)]
-  [start-snow   S (bg->play-icon (scale .25 SNOW-BG)   10 20 )]
+  [start-snow   S (bg->play-icon (scale .25 SNOW-BG)   20 140)]
 
   ;recommended CURSORS
   [bulbasaur    b (draw-sprite bulbasaur-sprite)]
@@ -28,9 +28,9 @@
   [pikachu      p (draw-sprite pikachu-sprite)]
 
   ;recommended COLLECTS
-  [leafstone    l (draw-sprite leafstone-sprite)]
-  [firestone    f (draw-sprite firestone-sprite)]
-  [waterstone   w (draw-sprite waterstone-sprite)]
+  [leaf-stone    l (draw-sprite leafstone-sprite)]
+  [fire-stone    f (draw-sprite firestone-sprite)]
+  [water-stone   w (draw-sprite waterstone-sprite)]
 
   ;rand!
   [rand         ? question-icon]  

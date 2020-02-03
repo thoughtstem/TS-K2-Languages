@@ -25,6 +25,7 @@
                   change-img-sat
                   change-img-bright
                   draw-sprite
+                  pick-frame
                   sprite->cursor-sprite)
          (only-in game-engine-demos-common
                   FOREST-BG
