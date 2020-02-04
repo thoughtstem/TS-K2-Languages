@@ -64,15 +64,17 @@
     (append (map number->points (filter number? l))
             (filter-not number? l)))
 
-
+  (define (maybe-dash-to-space s)
+    (string-replace (~a s) "-" " "))
+  
   (define (replace-rand s)
     (if (string=? (~a s) "rand")
       "[choose-your-own-sprite]"
       s))
 
   (match thing
-    [(list noun adj ... ) (apply english (append (move-numbers-to-front adj) (list (replace-rand noun))))]
-    [_ (replace-rand thing)]))
+    [(list noun adj ... ) (apply english (append (move-numbers-to-front adj) (list (replace-rand (maybe-dash-to-space noun)))))]
+    [_ (replace-rand (maybe-dash-to-space thing))]))
 
 (define-syntax-rule (define-example-code-with-stimuli-inferred lang id stuff ...)
   (begin
