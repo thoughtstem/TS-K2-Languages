@@ -30,9 +30,9 @@
   [kiwi       k (draw-sprite kiwi)]
   [strawberry s (draw-sprite strawberry)]
 
-  [copper   x (draw-sprite copper)]
-  [silver   y (draw-sprite silver)]
-  [gold     z (draw-sprite gold)]
+  ;[copper   x (draw-sprite copper)]
+  ;[silver   y (draw-sprite silver)]
+  ;[gold     z (draw-sprite gold)]
 
   [rand     ? question-icon]
   
