@@ -29,9 +29,9 @@
   [fish     f (draw-sprite fish)]
   [tomato   t (draw-sprite tomato)]
 
-  [copper   c (draw-sprite copper)]
-  [silver   s (draw-sprite silver)]
-  [gold     g (draw-sprite gold)]
+  ;[copper   c (draw-sprite copper)]
+  ;[silver   s (draw-sprite silver)]
+  ;[gold     g (draw-sprite gold)]
 
   [rand     ? question-icon]
 
