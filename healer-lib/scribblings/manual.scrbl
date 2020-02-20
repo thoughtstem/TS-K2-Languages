@@ -12,7 +12,7 @@ A library for making Ratchet-based healing games.
 
 Reprovides common colors from @racket[colors-as-strings] package -- @racket[red], @racket[green], @racket[blue], @racket[yellow], @racket[orange], and @racket[purple].
 
-Also reprovides @racket[play-icon] from @racket[common-icons].
+Also reprovides @racket[play-icon] from @racket[ts-icons].
 
 @defmodule[healer-lib/start]
 
