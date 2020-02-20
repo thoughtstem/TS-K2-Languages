@@ -1,15 +1,24 @@
-#lang racket
+#lang at-exp racket
 
 (provide start)
 
 (require healer-lib/start
-         (only-in animal-assets question-icon))
+         (only-in animal-assets question-icon)
+         (only-in ts-kata-util define/contract/doc)
+         )
 
-(define (my-start
-          (avatar-sprite (list question-icon)) 
-          (food-sprites '()) 
-          (npc-sprites '()) 
-          (enemy-sprites '()))
+(define/contract/doc (my-start
+                      (avatar-sprite (list question-icon)) 
+                      (food-sprites '()) 
+                      (npc-sprites '()) 
+                      (enemy-sprites '()))
+  (->i () ([avatar-sprite (listof sprite?)]
+           [food-sprites  (listof sprite?)]
+           [npc-sprites   (listof sprite?)]
+           [enemy-sprites (listof sprite?)])
+       [returns game?])
+
+  @{This is the game function for all three healer-animal languages. Generates a healer game.}
 
   (displayln "Animal game starting!")
 

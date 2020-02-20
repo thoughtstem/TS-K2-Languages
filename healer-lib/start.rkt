@@ -5,7 +5,9 @@
   bind-start-to
   generic-start
   custom-bg
-  make-instructions)
+  make-instructions
+  sprite?
+  game?)
 
 (require survival
          ratchet/util
