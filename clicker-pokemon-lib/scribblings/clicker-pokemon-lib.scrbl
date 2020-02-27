@@ -6,4 +6,4 @@
 
 @defmodule[clicker-pokemon-lib]
 
-Package Description Here
+Coming Soon!
