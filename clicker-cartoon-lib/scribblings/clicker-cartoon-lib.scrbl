@@ -3,8 +3,8 @@
                     racket/base]]
 
 @title{clicker-cartoon-lib}
-@author{saralucchini}
+@author{thoughtstem}
 
 @defmodule[clicker-cartoon-lib]
 
-Package Description Here
+Coming Soon!
